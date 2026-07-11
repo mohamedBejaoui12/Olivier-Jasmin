@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: var(--font-cormorant), "Cormorant Garamond", serif;
+  --font-body: var(--font-inter), "Inter", sans-serif;
+
+  --color-emerald: #0f5132;
+  --color-forest: #1b4332;
+  --color-olive: #5a7d4e;
+  --color-sage: #b7c9a8;
+  --color-gold: #c9a227;
+  --color-gold-light: #e4c968;
+  --color-warm-white: #fdfbf6;
+  --color-ivory: #faf8f3;
+  --color-charcoal: #2b2b28;
+  --color-dark-green: #14301f;
+
+  --shadow-soft: 0 10px 40px -12px rgba(20, 48, 31, 0.18);
+  --shadow-lift: 0 24px 60px -20px rgba(20, 48, 31, 0.28);
+}
+
+@layer base {
+  * {
+    scroll-behavior: smooth;
+  }
+
+  html {
+    background-color: var(--color-warm-white);
+  }
+
+  body {
+    color: var(--color-charcoal);
+    background-color: var(--color-warm-white);
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+    letter-spacing: 0.01em;
+  }
+
+  ::selection {
+    background-color: var(--color-gold);
+    color: var(--color-warm-white);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-ivory);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-sage);
+    border-radius: 999px;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: rgba(253, 251, 246, 0.72);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+  }
+
+  .glass-dark {
+    background: rgba(20, 48, 31, 0.55);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+  }
+
+  .gold-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-gold) 50%, transparent);
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(120deg, var(--color-gold) 0%, var(--color-gold-light) 50%, var(--color-gold) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .section-pad {
+    padding-top: clamp(4rem, 8vw, 7rem);
+    padding-bottom: clamp(4rem, 8vw, 7rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
