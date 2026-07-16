@@ -1,4 +1,4 @@
-import { MenuCategory } from "@/types";
+import { MenuCategory } from "@/types"; // Types
 
 export const menuCategories: MenuCategory[] = [
   {
